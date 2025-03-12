@@ -1,0 +1,113 @@
+body {
+	font-family: monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #f0f8ff;
+	/* Light blue background */
+}
+
+.container {
+	width: 90%;
+	max-width: 400px;
+	padding: 30px;
+	border: 2px solid #003366;
+	/* Dark blue border */
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: white;
+	box-shadow: 4px 4px #003366;
+	/* Dark blue shadow */
+}
+
+button {
+	font-size: 1.5rem;
+	color: #ffffff;
+	/* White text */
+	text-transform: uppercase;
+	padding: 10px 20px;
+	border-radius: 10px;
+	border: 2px solid #003366;
+	/* Dark blue border */
+	background: #0066cc;
+	/* Medium blue background */
+	box-shadow: 4px 4px #003366;
+	/* Dark blue shadow */
+	cursor: pointer;
+	margin: 35px 0;
+	font-weight: bold;
+}
+
+.input-container {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+input {
+	width: 100%;
+	padding: 15px;
+	font-size: 20px;
+	border: 2px solid #003366;
+	/* Dark blue border */
+	border-radius: 20px;
+	box-sizing: border-box;
+	text-align: center;
+	font-family: monospace;
+}
+
+button:hover {
+	background: #004d99;
+	/* Darker blue on hover */
+}
+
+button:active {
+	box-shadow: none;
+	transform: translate(4px, 4px);
+}
+
+.qr-result {
+	width: 100%;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease-out;
+	margin-top: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.qr-result.active {
+	max-height: 300px;
+	margin-top: 20px;
+}
+
+.qr-image {
+	width: 200px;
+	height: 200px;
+	margin: 10px 0;
+	border: 2px solid #003366;
+	/* Dark blue border */
+	border-radius: 8px;
+	background-color: white;
+	padding: 8px;
+}
+
+.error-message {
+	color: #cc0000;
+	/* Bright red */
+	margin-top: 10px;
+	display: none;
+	font-weight: bold;
+}
+
+h1 {
+	color: #003366;
+	/* Dark blue */
+	margin-top: 0;
+	margin-bottom: 20px;
+	text-align: center;
+}
