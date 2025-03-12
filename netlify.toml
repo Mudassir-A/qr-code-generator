@@ -1,0 +1,13 @@
+[build]
+  command = "# no build command needed for static site"
+  publish = "frontend"
+  functions = "functions"
+
+[functions]
+  directory = "functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
