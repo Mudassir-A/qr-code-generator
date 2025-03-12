@@ -1,13 +1,22 @@
 [build]
-  command = "# no build command needed for static site"
   publish = "frontend"
   functions = "functions"
 
 [functions]
   directory = "functions"
   node_bundler = "esbuild"
+  external_node_modules = ["pyqrcode", "pypng"]
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+# Add CORS headers
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
+

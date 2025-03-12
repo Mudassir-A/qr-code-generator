@@ -3,7 +3,6 @@ import json
 import io
 import pyqrcode
 
-
 def handler(event, context):
     # Parse request body
     try:
@@ -11,7 +10,14 @@ def handler(event, context):
         url = body.get("url", "")
 
         if not url:
-            return {"statusCode": 400, "body": json.dumps({"error": "URL is required"})}
+            return {
+                "statusCode": 400, 
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                "body": json.dumps({"error": "URL is required"})
+            }
 
         # Generate QR code
         qr = pyqrcode.create(url)
@@ -27,9 +33,20 @@ def handler(event, context):
         # Return the image data
         return {
             "statusCode": 200,
-            "headers": {"Content-Type": "application/json"},
-            "body": json.dumps({"image": f"data:image/png;base64,{image_base64}"}),
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            "body": json.dumps({"image": f"data:image/png;base64,{image_base64}"})
         }
 
     except Exception as e:
-        return {"statusCode": 500, "body": json.dumps({"error": str(e)})}
+        return {
+            "statusCode": 500, 
+            "headers": {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "*"
+            },
+            "body": json.dumps({"error": str(e)})
+        }
+
